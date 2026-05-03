@@ -46,7 +46,7 @@ class ProfessorProjectsPage(ProfessorPageBase):
         self.project_records = [
             project
             for project in all_projects
-            if not teacher_class_ids or project.get("class_id") in teacher_class_ids or project.get("class_id") is None
+            if teacher_class_ids and project.get("class_id") in teacher_class_ids or project.get("class_id") is None
         ]
         self.project_listbox.delete(0, tk.END)
         for project in self.project_records:
